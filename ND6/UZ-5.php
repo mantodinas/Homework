@@ -48,16 +48,16 @@ $array = [
     ],
     [
         [
-        "species" => "species1",
-        "age" => 2123,
-        "name" => "vardas1",
-        "description" => "description1"
+        "name" => "Beaver",
+        "species" => "rodent",
+        "age" => "around seven to eight years",
+        "description" => "largest living rodents in the world"
         ],
         [
-        "species" => "species2",
-        "age" => 2123,
-        "name" => "vardas2",
-        "description" => "description2"
+        "name" => "Beaver",
+        "species" => "rodent",
+        "age" => "around seven to eight years",
+        "description" => "largest living rodents in the world"
         ],
     ],
 
@@ -68,7 +68,7 @@ echo "</pre>";
 
 foreach ($array[1] as $value) {
     foreach ($value as $value) {
-        echo $ . "<br>";
+        echo $value . "<br>";
     }
 }
 /*
