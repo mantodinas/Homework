@@ -1,6 +1,5 @@
 <?php
 
-
 $firstName = 'Arnold';
 $lastName = 'Schwarzenegger';
 $firstLetter = $firstName[0] . $lastName[0];

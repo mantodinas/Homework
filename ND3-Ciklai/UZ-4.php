@@ -7,6 +7,7 @@ for($i = 0; $i < $size; $i++){
   }
   echo("</br>");
 } 
+
 /*
 4.	
 Nupieškite kvadratą iš “*”, kurio kraštines 

@@ -19,7 +19,6 @@ foreach(range(0,99)as $index){
 echo '<br>';
 print_r($masyvas2);
 
-
 /*
 6.	
 Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai 

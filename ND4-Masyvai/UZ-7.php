@@ -29,6 +29,7 @@ foreach($masyvas1 as $value){
     }
 }
 print_r($masyvas1);
+
 /*
 7.	
 Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios 

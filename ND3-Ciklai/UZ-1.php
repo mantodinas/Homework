@@ -7,7 +7,6 @@ for($i = 0; $i <= 399; ++$i){
 
 echo chunk_split($star,50);echo '<br>'; 
 
-
 /*
 1.	
 Naršyklėje nupieškite linija iš 400 “*”. 

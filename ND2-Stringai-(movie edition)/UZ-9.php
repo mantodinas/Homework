@@ -1,6 +1,5 @@
 <?php
 
-
 $movieNameEN = 'Don\'t Be a Menace to South Central While Drinking Your Juice in the Hood';
 $movieNameLT = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
 

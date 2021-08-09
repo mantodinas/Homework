@@ -21,7 +21,6 @@ $sakinys4 = 'It\'s a Wonderful Life';
 echo $sakinys4 = str_ireplace($balses,'', $sakinys4);
 echo '<br>';
 
-
 /*
 7.	
 Sukurti kintamąjį su stringu: “An American in Paris”. 

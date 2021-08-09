@@ -1,6 +1,5 @@
 <?php
 
-
 $string = 'An American in Paris';
 $newString = str_ireplace('A', '*', $string);
 

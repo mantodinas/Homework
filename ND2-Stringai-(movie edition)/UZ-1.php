@@ -1,6 +1,5 @@
 <?php
 
-
 $actor = 'Johnny';
 $actorSurname = 'Depp';
 

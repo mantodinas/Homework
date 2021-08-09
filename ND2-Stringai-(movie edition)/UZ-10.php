@@ -13,7 +13,6 @@ return   $randomString;
 
 echo stringRender(3);
 
-
 /*
 10.	
 Parašyti kodą, kuris generuotų atsitiktinį 

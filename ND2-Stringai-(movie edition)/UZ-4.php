@@ -1,6 +1,5 @@
 <?php
 
-
 $firstName = 'Arnold';
 $lastName = 'Schwarzenegger';
 
