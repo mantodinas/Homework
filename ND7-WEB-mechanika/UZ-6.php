@@ -1,6 +1,12 @@
 <?php
 
+$color = "green";
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    $color = "yellow";
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +14,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ND7-UZ6</title>
+    <style>
+        .bg-color{
+            background-color:<?=$color?>
+        }
+    </style>
 </head>
-<body style='background-color: #29F70F;'>
-    <button>one</button><br>
-    <button>two</button>
+<body class="bg-color">
+    <form action="" method="get">
+        <button type="submit">get</button>
+    </form>
+
+    <form action="" method="post">
+        <button type="submit">post</button>
+    </form>
 </body>
 </html>
 
