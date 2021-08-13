@@ -15,8 +15,8 @@ if(isset ($_GET['color'])) {
     <title>ND7-UZ1</title>
 </head>
 <body style='background-color:black;'>
-    <a href="http://localhost/Homework/ND7-WEB-mechanika/UZ-1.php?color=1">Raudonas</a>
-    <a href="http://localhost/Homework/ND7-WEB-mechanika/UZ-1.php">Juodas</a>
+    <a href="http://localhost/Homework/ND7-WEB-mechanika/UZ-1.php?color=1">Red</a>
+    <a href="http://localhost/Homework/ND7-WEB-mechanika/UZ-1.php">Black</a>
 </body>
 </html>
 
