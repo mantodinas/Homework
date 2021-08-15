@@ -1,4 +1,5 @@
 <?php
+
 $letters =['A','B','C','D','E','F','G','H','I','J',];
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkbox'])){
     echo $_POST['checkbox'];
