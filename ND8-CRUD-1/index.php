@@ -92,30 +92,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
 
     <form class="form" action="" method="POST">
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Gyvūno rūšis</label>
+            <label class="col-sm-2 col-form-label" >Animal species</label>
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="species" value="<?= (isset($animal))? $animal['species'] : "" ?>">
             </div>
          </div>
          <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Gyvūno vardas</label>
+            <label class="col-sm-2 col-form-label" >Animal name</label>
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="name" value="<?= (isset($animal))? $animal['name'] : "" ?>">
             </div>
          </div>
          <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Gyvūno amžius</label>
+            <label class="col-sm-2 col-form-label" >Animal age</label>
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="age" value="<?= (isset($animal))? $animal['age'] : "" ?>">
             </div>
             
          </div>
     <?php if(!isset($animal)){
-            echo '<button class="btn btn-primary" type="submit">Pridėti gyvūną</button>';
+            echo '<button class="btn btn-primary" type="submit">Ad animal</button>';
     }else{
             echo '
             <input type="hidden" name="id" value="'. $animal['id'].' ">
-            <button class="btn btn-info" type="submit">Atnaujinti gyvūną</button>';
+            <button class="btn btn-info" type="submit">Update animal</button>';
     } ?>
     </form>
 
@@ -124,11 +124,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
     <table class="table" style="color: white">
         <tr>
         <th>Id</th> 
-        <th>Rūšis</th> 
-        <th>Vardas</th> 
-        <th>Amžius</th> 
-        <th>edit</th> 
-        <th>delete</th> 
+        <th>Species</th> 
+        <th>Name</th> 
+        <th>Age</th> 
+        <th>Edit</th> 
+        <th>Delete</th> 
         </tr>
 
 
