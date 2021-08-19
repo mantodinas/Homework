@@ -2,12 +2,12 @@
 init();
 function init()
 {
-    if (!file_exists(("./"))) {
+    if (!file_exists(("./data.txt"))) {
         file_put_contents("./data.txt", "[]");
         file_put_contents("./id.txt", 0);
     }
 }
-function stored()
+function store()
 {
     $data = getData();
     $car['id'] = newId();
@@ -15,6 +15,7 @@ function stored()
     $car['model'] = $_POST['model'];
     $car['year'] = $_POST['year'];
     $car['color'] = $_POST['color'];
+    $car['distance'] = $_POST['distance'];
     $car['fuel'] = $_POST['fuel'];
     $car['status'] = $_POST['status'];
 
@@ -24,15 +25,15 @@ function stored()
 }
 function getData()
 {
-    $info = json_decode(file_get_contents("./data.txt"), 1);
-    foreach ($info as $entry) {
+    $arr = json_decode(file_get_contents("./data.txt"), 1);
+    foreach ($arr as &$entry) {
         $entry = (array)$entry;
     }
-    return $info;
+    return $arr;
 }
-function setData($info)
+function setData($arr)
 {
-    return file_put_contents("./data.txt", json_encode($info));
+    return file_put_contents("./data.txt", json_encode($arr));
 }
 function newId()
 {
@@ -53,13 +54,14 @@ function edit()
 function update()
 {
     $data = getData();
-    foreach ($data as $car) {
-        if ($car['id'] == $_POST['id']) {
-            $car['manufacturer'] == $_POST['manufacturer'];
-            $car['model'] == $_POST['model'];
-            $car['year'] == $_POST['year'];
-            $car['color'] == $_POST['color'];
-            $car['fuel'] == $_POST['fuel'];
+    foreach ($data as &$car) {
+        if ($car['id'] = $_POST['id']) {
+            $car['manufacturer'] = $_POST['manufacturer'];
+            $car['model'] = $_POST['model'];
+            $car['year'] = $_POST['year'];
+            $car['color'] = $_POST['color'];
+            $car['distance'] = $_POST['distance'];
+            $car['fuel'] = $_POST['fuel'];
             setData($data);
             return;           
         }
@@ -79,7 +81,7 @@ function destroy()
 function sell()
 {
     $data = getData();
-    foreach ($data as $key => $car) {
+    foreach ($data as $key => &$car) {
         if ($car['id'] == $_POST['id']) {
             $car['status'] = 'sold';
             setData($data);

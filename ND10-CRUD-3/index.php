@@ -7,29 +7,29 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
 }
 
 //CREATE
-if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['id'])) {
     store();
-    header("location./");
+    header("location:./");
 }
 
 //SELL
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['status'])) {
     sell();
-    header("location./");
+    header("location:./");
     die;
 }
 
 //DELETE
-if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['model'])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !isset($_POST['model'])) {
     destroy();
-    header("location./");
+    header("location:./");
     die;
 }
 
 //UPDATE
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
     update();
-    header("location./");
+    header("location:./");
     die;
 }
 ?>
@@ -40,57 +40,61 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ND10-CRUD-3</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <title>CRUD-3-CARS-INDEX</title>
 </head>
-
-<body>
+<body>    
     <form class="form" action="" method="POST">
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Car manufacturer</label>
+            <label class="col-sm-2 col-form-label" >manufacturer</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="manufacturer" value="<?= (isset($car)) ? $car['manufacturer'] : "" ?>">
-            </div>
+            <input class="form-control" type="text" name="manufacturer" value="<?= (isset($car))? $car['manufacturer'] : "" ?>">
         </div>
+    </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" >model</label>
+            <div class="col-sm-4">
+            <input class="form-control" type="text" name="model" value="<?= (isset($car))? $car['model'] : "" ?>">
+        </div>
+    </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" >year</label>
+            <div class="col-sm-4">
+            <input class="form-control" type="text" name="year" value="<?= (isset($car))? $car['year'] : "" ?>">
+        </div>
+    </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Car model</label>
+            <label class="col-sm-2 col-form-label" >color</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="model" value="<?= (isset($car)) ? $car['model'] : "" ?>">
-            </div>
+            <input class="form-control" type="text" name="color" value="<?= (isset($car))? $car['color'] : "" ?>">
         </div>
+    </div>
 
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Year car manufactured</label>
+            <label class="col-sm-2 col-form-label" >distance</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="year" value="<?= (isset($car)) ? $car['year'] : "" ?>">
-            </div>
+         <input class="form-control" type="text" name="distance" value="<?= (isset($car)) ? $car['distance'] : "" ?>">
         </div>
-
+    </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Car color</label>
+            <label class="col-sm-2 col-form-label" >fuel</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="color" value="<?= (isset($car)) ? $car['color'] : "" ?>">
-            </div>
+            <input class="form-control" type="text" name="fuel" value="<?= (isset($car))? $car['fuel'] : "" ?>">
         </div>
+    </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Car fuel</label>
-            <div class="col-sm-4">
-                <input class="form-control" type="text" name="fuel" value="<?= (isset($car)) ? $car['fuel'] : "" ?>">
-            </div>
-        </div>
+    <?php if (!isset($car)) {
+        echo '<button class="btn btn-primary" type="submit">Ad Car</button>';
+    }else {
+        echo '<input type="hidden" name="id" value="' . $car['id'] . '"> 
+        <button class="btn btn-info" type="submit">Update car</button>';
+    } ?>
 
-        <?php if (!isset($car)) {
-            echo '<button class="btn btn-primary" type="submit">Ad Car</button>';
-        }else {
-            echo '<input type="hidden" name="id" value="' . $car['id'] . '"> <button class="btn btn-info" type="submit">Update car</button>';
-        } ?>
-
-    </form>
+     </form>
     <table class="table">
         <tr>
             <th>Id</th>
@@ -98,6 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
             <th>Car model</th>
             <th>Year car manufactured</th>
             <th>Car color</th>
+            <th>Distance</th>
             <th>Car fuel</th>
             <th>update</th>
             <th>delete</th>
@@ -111,6 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
                <td> <?=$car['model'] ?> </td>
                <td> <?=$car['year'] ?> </td>
                <td> <?=$car['color'] ?> </td>
+                <td> <?=$car['distance'] ?> </td>
                <td> <?=$car['fuel'] ?> </td>
                <td><a class="btn btn-success" href="?id=<?= $car['id'] ?>">update</a></td>
                <td>
@@ -124,12 +130,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
                         <form action="" method="post">
                             <input type="hidden" name="id" value="<?= $car['id'] ?>">
                             <input type="hidden" name="status" value="<?= $car['status'] ?>">
-                            <button class="btn btn-warning" type="submint">sell</button>
+                            <button class="btn btn-warning" type="submit">sell</button>
                         </form>
                     <?php } else {
                         echo 'sold';
                     } ?>
-                   }
                </td>
            </tr>
       <?php } ?>
