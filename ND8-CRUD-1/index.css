@@ -1,5 +1,14 @@
 .form {
   margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.form-group {
+  margin-bottom: 2px;
+}
+
+.btn-primary {
+  margin-top: 5px;
 }
 
 body {
