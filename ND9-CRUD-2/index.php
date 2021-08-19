@@ -89,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
             </div>
             
         <?php if(!isset($athletes)){
-                echo '<button class="btn btn-primary" type="submit">New athlete</button>';
+                echo '<button class="btn btn-primary col-md-2" type="submit">New athlete</button>';
         }else{
                 echo '
                 <input type="hidden" name="id" value="'. $athletes['id'].' ">
