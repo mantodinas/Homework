@@ -54,35 +54,35 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
              </div>
 
              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">surname</label>
+                <label class="col-sm-2 col-form-label">Surname</label>
                 <div class="col-sm-4">
                     <input class="form-control" type="text" name="surname" value="<?= (isset($athletes))? $athletes['surname'] : "" ?>">
                 </div>
              </div>
 
              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">sport</label>
+                <label class="col-sm-2 col-form-label">Sport</label>
                 <div class="col-sm-4">
                     <input class="form-control" type="text" name="sport" value="<?= (isset($athletes))? $athletes['sport'] : "" ?>">
                 </div>
             </div>
 
              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">country</label>
+                <label class="col-sm-2 col-form-label">Country</label>
                 <div class="col-sm-4">
                     <input class="form-control" type="text" name="country" value="<?= (isset($athletes))? $athletes['country'] : "" ?>">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">gender</label>
+                <label class="col-sm-2 col-form-label">Gender</label>
                 <div class="col-sm-4">
                     <input class="form-control" type="text" name="gender" value="<?= (isset($athletes))? $athletes['gender'] : "" ?>">
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">victories</label>
+                <label class="col-sm-2 col-form-label">Victories</label>
                 <div class="col-sm-4">
                     <input class="form-control" type="text" name="victories" value="<?= (isset($athletes))? $athletes['victories'] : "" ?>">
                 </div>     
@@ -101,11 +101,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
         <tr>
         <th>Id</th> 
         <th>Name</th> 
-        <th>surname</th> 
-        <th>sport</th> 
-        <th>country</th> 
-        <th>gender</th>
-        <th>victories</th> 
+        <th>Surname</th> 
+        <th>Sport</th> 
+        <th>Country</th> 
+        <th>Gender</th>
+        <th>Victories</th> 
         </tr>
 
         <?php $count = 0; foreach ($_SESSION['olympics'] as $athletes) {  ?>
@@ -115,6 +115,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
                 <td> <?= $athletes['surname']  ?> </td>
                 <td> <?= $athletes['sport']  ?> </td>
                 <td> <?= $athletes['country']  ?> </td>
+                <td> <?= $athletes['gender']  ?> </td>
                 <td> <?= $athletes['victories']  ?> </td>
                 <td><a class="btn btn-success" href="?id=<?= $athletes['id']  ?>">edit</a></td>
                 <td>
