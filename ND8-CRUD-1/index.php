@@ -111,7 +111,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])  ){
             
          </div>
     <?php if(!isset($animal)){
-            echo '<button class="btn btn-primary" type="submit">Ad animal</button>';
+            echo '<button class="btn btn-primary col-md-2" type="submit">Ad animal</button>';
     }else{
             echo '
             <input type="hidden" name="id" value="'. $animal['id'].' ">
