@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 $action ='create';
 
 if (isset($_GET['action'])){
-    $plant = edit();
+    $plant = find($_GET['action']);
     $action = 'update';
 }
 
