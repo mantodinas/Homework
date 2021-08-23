@@ -5,31 +5,28 @@
 
 include('./DB.php');
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-    if ($_POST['action'] == 'create'){
-        store();
-        header("location:./");
-        die;
-    }
-    
-    if ($_POST['action'] == 'update'){
-        store();
-        header("location:./");
-        die;
-    }
-
-    if ($_POST['action'] == 'destroy'){
-        store();
-        header("location:./");
-        die;
-    }
+if(isset($_POST['create'])) {
+    store();
+    header("location:./");
+    die;
 }
 
-$action ='create';
+if(isset($_POST['update'])) {
+    update();
+    header("location:./");
+    die;
+}
+    
+if(isset($_POST['delete'])) {
+    destroy($_POST['delete']);
+    header("location:./");
+    die; 
+}
 
-if (isset($_GET['action'])){
-    $plant = find($_GET['action']);
+$action = 'create';
+
+if(isset($_GET['edit'])) {
+    $plant = find($_GET['edit']);
     $action = 'update';
 }
 
@@ -51,69 +48,65 @@ if (isset($_GET['action'])){
 <body>
     
     <form class="form" action="" method="POST">
-        <input type="hidden" name="action" value="<?=$action?>">
+       
         <div class="from-group row">
-            <label class="col-sm-2 col-form-lable">Name</label>
+            <label class="col-sm-2 col-form-lable">Plant name</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="Name" value="<?= (isset($plant))? $plant['Name'] : "" ?>">
+                <input class="form-control" type="text" name="name" value="<?= (isset($plant))? $plant['name'] : "" ?>">
             </div>
         </div>
+
         <div class="from-group row">
-            <label class="col-sm-2 col-form-lable">is_yearling</label>
+            <label class="col-sm-2 col-form-lable">Is yearling</label>
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="is_yearling" value="<?= (isset($plant))? $plant['is_yearling'] : "" ?>">
+                <input class="checkboxsize" type="checkbox" name="is_yearling">
             </div>
         </div>
+
         <div class="from-group row">
-            <label class="col-sm-2 col-form-lable">quantity</label>
+            <label class="col-sm-2 col-form-lable">Quantity</label>
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="quantity" value="<?= (isset($plant))? $plant['quantity'] : "" ?>">
             </div>
         </div>
 
-            <?php if (!isset($plant)) {
-            echo '<button class="btn btn-primary col-md-2" type="submit">New plant</button>';
-        }else {
-            echo '<input type="hidden" name="id" value="' . $plant['id'] . '"> 
-            <button class="btn btn-info" type="submit">Update plant</button>';
-        } ?>
+    <?php if (!isset($plant)) {
+        echo '<button class="btn btn-primary col-md-2" name="create" type="submit">New plant</button>';
+    }else {
+        echo '<button class="btn btn-info" type="submit" name="update" value="'.$plant['id'].'">Update plant</button>';
+    } ?>
     </form>
 
     <table class="table" style="color: white">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>is_yearling</th>
-            <th>quantity</th>
+        <<tr>
+        <th>Id</th> 
+        <th>Plant name</th> 
+        <th>Is yearling</th> 
+        <th>Quantity</th>  
+        <th>edit</th> 
+        <th>delete</th> 
         </tr>
 
-        <?php foreach (getData() as $plant) { ?>
-            <tr>
-                <td> <?=$plant['id'] ?> </td>
-                <td> <?=$plant['Name'] ?> </td>
-                <td> <?=$plant['is_yearling'] ?> </td>
-                <td> <?=$plant['quantity'] ?> </td>
-                <td><a class="btn btn-success" href="?id=<?= $plant['id'] ?>">update</a></td>
-                <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="<?= $plant['id'] ?>">
-                        <button class="btn btn-danger" type="submit">delete</button>
-                    </form>
-                </td>
-                <td>
-                    <?php if (!$plant['status'] == 'sold') { ?>
-                        <form action="" method="post">
-                            <input type="hidden" name="id" value="<?= $plant['id'] ?>">
-                            <input type="hidden" name="status" value="<?= $plant['status'] ?>">
-                            <button class="btn btn-warning" type="submit">sell</button>
-                        </form>
-                        <?php } else {
-                            echo 'sold';
-                        } ?>
-               </td>
-            </tr>
-        <?php  } ?>
+    <?php $count = 0; foreach (allOld() as $plant) { 
+        $checked = "";
+        if( $plant['is_yearling'] ){
+            $checked = "checked";
+        }
+        
+        ?>
+        <tr>
+            <td> <?= ++$count."/".$plant['id']  ?> </td>
+            <td> <?= $plant['name']  ?> </td>
+            <td> <input type="checkbox" name="" id="" <?=$checked?> disabled> </td>
+            <td> <?= $plant['quantity']  ?> </td>
+            <td> <a class="btn btn-success" href="?edit=<?= $plant['id']  ?>">edit</a> </td>
+            <td>
+                <form action="" method="post">
+                    <button class="btn btn-danger" type="submit" name="delete" value="<?=$plant['id'] ?>">delete</button>
+                </form>
+            </td>
+        </tr>
+        <?php } ?>
     </table>
-
 </body>
 </html>

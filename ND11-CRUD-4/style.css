@@ -10,7 +10,14 @@
 .form-group {
   margin-bottom: 2px;
 }
+/*
+input.checkboxsize {
+  width: 20px;
+  height: 20px;
+}
 
+62 line class="checkboxsize"
+*/
 body {
   background: rgb(1, 15, 29);
   background: linear-gradient(
