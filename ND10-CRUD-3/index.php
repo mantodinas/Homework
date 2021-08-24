@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['id'])) {
     } ?>
 
      </form>
-    <table class="table">
+    <table class="table" style="color: white">
         <tr>
             <th>Id</th>
             <th>Car manufacturer</th>
