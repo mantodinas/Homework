@@ -3,6 +3,11 @@
   margin-top: 15px;
 }
 
+input[type='checkbox'] {
+  margin-top: 2px;
+  zoom: 3;
+}
+
 .btn-primary {
   margin-top: 5px;
 }
@@ -10,14 +15,11 @@
 .form-group {
   margin-bottom: 2px;
 }
-/*
-input.checkboxsize {
-  width: 20px;
-  height: 20px;
+
+.table {
+  color: white;
 }
 
-62 line class="checkboxsize"
-*/
 body {
   background: rgb(1, 15, 29);
   background: linear-gradient(

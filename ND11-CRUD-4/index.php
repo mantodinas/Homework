@@ -1,8 +1,6 @@
 <?php
 
 //plants. id, name, is_yearling, quantity 
-
-
 include('./DB.php');
 
 if(isset($_POST['create'])) {
@@ -43,28 +41,31 @@ if(isset($_GET['edit'])) {
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <title>Medelynas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+  
+    </style>
 </head>
 <body>
     
     <form class="form" action="" method="POST">
        
         <div class="from-group row">
-            <label class="col-sm-2 col-form-lable">Plant name</label>
+            <label class="col-sm-2 col-form-label">Plant name</label>
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="name" value="<?= (isset($plant))? $plant['name'] : "" ?>">
             </div>
         </div>
 
         <div class="from-group row">
-            <label class="col-sm-2 col-form-lable">Is yearling</label>
+            <label class="col-sm-2 col-form-label">Is yearling</label>
             <div class="col-sm-4">
-                <input class="checkboxsize" type="checkbox" name="is_yearling">
+                <input type="checkbox" name="is_yearling">
             </div>
         </div>
 
         <div class="from-group row">
-            <label class="col-sm-2 col-form-lable">Quantity</label>
+            <label class="col-sm-2 col-form-label">Quantity</label>
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="quantity" value="<?= (isset($plant))? $plant['quantity'] : "" ?>">
             </div>
@@ -77,8 +78,8 @@ if(isset($_GET['edit'])) {
     } ?>
     </form>
 
-    <table class="table" style="color: white">
-        <<tr>
+    <table class="table">
+        <tr>
         <th>Id</th> 
         <th>Plant name</th> 
         <th>Is yearling</th> 
@@ -97,7 +98,7 @@ if(isset($_GET['edit'])) {
         <tr>
             <td> <?= ++$count."/".$plant['id']  ?> </td>
             <td> <?= $plant['name']  ?> </td>
-            <td> <input type="checkbox" name="" id="" <?=$checked?> disabled> </td>
+            <td> <input type="checkbox"  name="" id="" <?=$checked?> disabled> </td>
             <td> <?= $plant['quantity']  ?> </td>
             <td> <a class="btn btn-success" href="?edit=<?= $plant['id']  ?>">edit</a> </td>
             <td>
