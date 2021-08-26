@@ -1,0 +1,30 @@
+.form {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+input[type='checkbox'] {
+  margin-top: 2px;
+  zoom: 3;
+}
+
+.btn-primary {
+  margin-top: 5px;
+}
+
+.table {
+  color: white;
+}
+
+body {
+  background: rgb(1, 15, 29);
+  background: linear-gradient(
+    90deg,
+    rgba(1, 15, 29, 1) 30%,
+    rgba(3, 63, 90, 1) 70%,
+    rgba(7, 145, 146, 1) 100%
+  );
+  color: white;
+  margin-left: 25px;
+  overflow-x: hidden;
+}
