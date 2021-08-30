@@ -2,7 +2,7 @@
 
 function connect()
 {
-return new mysqli("localhost","root","","nd11_medelynas");
+return new mysqli("localhost","root","","medelynas1");
 }
 
 function find($id){
