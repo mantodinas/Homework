@@ -60,7 +60,7 @@ if(isset($_GET['edit'])) {
         <div class="from-group row">
             <label class="col-sm-2 col-form-label">Is yearling</label>
             <div class="col-sm-4">
-                <input type="checkbox" name="is_yearling">
+            <input type="checkbox" name="is_yearling" <?=$checked?>>
             </div>
         </div>
 

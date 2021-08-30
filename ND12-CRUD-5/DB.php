@@ -57,6 +57,10 @@ function store(){
 }
 
 function update(){
+    $is_yearling = 0;
+    if(isset($_POST['is_yearling'])){
+    $is_yearling = 1;  
+    }
     $conn = connect();
    $sql = 'UPDATE `plants` SET `name`="' . $_POST['name'] . '",`is_yearling`="' . $is_yearling .  '" WHERE id = ' . $_POST['update'];
     $conn->query($sql);
